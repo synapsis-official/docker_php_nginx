@@ -31,6 +31,7 @@ function main() {
     git tag "${tag}" || true
     # Push new tag
     git push origin "${tag}"
+    git push origin ":${tag_branch}"
     # Checkout to working branch
     git checkout "${working_branch}"
 }
