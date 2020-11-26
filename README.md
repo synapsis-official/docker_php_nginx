@@ -6,7 +6,6 @@ Official Docker image of Synaps.is
 
 alpine-7.4
 
-
 ## Branch
 
 alpine-7.4-branch
