@@ -28,7 +28,7 @@ function main() {
     # Delete local tag
     git tag -d "${tag}" || true
     # Make local tag
-    git tag -d "${tag}" || true
+    git tag "${tag}" || true
     # Push new tag
     git push origin "${tag}"
     # Checkout to working branch
