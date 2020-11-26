@@ -15,22 +15,24 @@ if [ "$1" = '--help' ] || [ "$1" = '-h' ];then
 fi
 
 function main() {
-    local current_branch
     readonly local tag=$1
     readonly local tag_branch="${tag}-branch"
-    current_branch="$(git branch --show-current)"
-    if [ "${current_branch}" != "${tag_branch}" ];then
+    readonly local working_branch="$(git branch --show-current)"
+    if [ "${working_branch}" != "${tag_branch}" ];then
       git checkout -b "${tag_branch}" || git checkout "${tag_branch}"
-      current_branch="${tag_branch}"
     fi
     git add .
     git commit -m "Update tag ${tag}"
     # Delete remote tag
-    git push origin ":${tag}"
+    git push origin ":${tag}" || true
     # Delete local tag
-    git tag -d "${tag}"
+    git tag -d "${tag}" || true
+    # Make local tag
+    git tag -d "${tag}" || true
     # Push new tag
     git push origin "${tag}"
+    # Checkout to working branch
+    git checkout "${working_branch}"
 }
 
 main "$@"
