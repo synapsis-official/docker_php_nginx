@@ -4,7 +4,7 @@ Official Docker Image of Synaps.is
 
 ## Links
 
-- [Docker Hub](https://hub.docker.com/repository/docker/syis/php-nginx)
+- [Docker Hub](https://hub.docker.com/r/syis/php-nginx)
 
 ## Tag
 
