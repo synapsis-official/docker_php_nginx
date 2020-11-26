@@ -31,9 +31,15 @@ function main() {
     git tag "${tag}" || true
     # Push new tag
     git push origin "${tag}"
-    git push origin ":${tag_branch}"
-    # Checkout to working branch
-    git checkout "${working_branch}"
+    if [ "${working_branch}" != "${tag_branch}" ];then
+      # Delete remote tag branch
+      git push origin ":${tag_branch}"
+      # Checkout to working branch
+      git checkout "${working_branch}"
+      # Delete local tag branch
+      git branch -D "${tag_branch}"
+    fi
+    git fetch -apnt
 }
 
 main "$@"
