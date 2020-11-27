@@ -8,8 +8,8 @@ MAINTAINER fabrizio@fubelli.org
 RUN apk --update add nginx
 RUN mkdir -p /run/nginx
 
-VOLUME ["/var/cache/nginx"]
-
 EXPOSE 80 443
+
+STOPSIGNAL SIGQUIT
 
 CMD ["nginx", "-g", "daemon off;"]
