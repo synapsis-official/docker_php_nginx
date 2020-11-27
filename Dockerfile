@@ -8,6 +8,8 @@ MAINTAINER fabrizio@fubelli.org
 RUN apk --update add nginx
 RUN mkdir -p /run/nginx
 
+cp nginx/conf.d/ /etc/nginx/conf.d/
+
 EXPOSE 80 443
 
 STOPSIGNAL SIGQUIT
