@@ -22,7 +22,7 @@ RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
 
 RUN mkdir -p /run/nginx
 
-COPY nginx/conf.d/ /etc/nginx/conf.d/
+COPY nginx/default.conf /etc/nginx/conf.d/
 COPY php-fpm/ /usr/local/etc/php-fpm.d/
 COPY start-php-fpm-nginx.sh /usr/local/bin/start-php-fpm-nginx
 
