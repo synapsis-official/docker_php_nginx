@@ -1,4 +1,4 @@
-# Nginx with PHP-FPM
+# Nginx with PHP-FPM and Composer
 
 Official Docker Image of Synaps.is
 
@@ -7,9 +7,22 @@ Official Docker Image of Synaps.is
 ```dockerfile
 FROM syis/php-nginx:alpine-7.4
 
-COPY docker/ngnx/cond.d/ /etc/nginx/conf.d/
+RUN mkdir -p /var/www/app
+WORKDIR /var/www/app
 
-EXPOSE 8080
+COPY composer.json ./
+COPY composer.lock ./
+
+RUN composer install --no-scripts --no-autoloader --no-interaction --no-progress
+
+COPY . ./
+
+RUN composer dump-autoload --optimize
+
+# Copy nginx default virtual host
+COPY docker/nginx/default.conf /etc/nginx/conf.d/
+
+EXPOSE 80
 ```
 
 ## Links
