@@ -17,14 +17,12 @@ RUN mkdir -p /run/nginx && mkdir /run/php
 
 COPY nginx/conf.d/ /etc/nginx/conf.d/
 COPY php-fpm/ /usr/local/etc/php-fpm.d/
-COPY entrypoint.sh /usr/local/bin/
+COPY start-php-fpm-nginx.sh /usr/local/bin/start-php-fpm-nginx
 
 EXPOSE 80 443
 
 STOPSIGNAL SIGQUIT
 
-# TODO: fix php-fpm
-# ENTRYPOINT "/usr/local/bin/entrypoint.sh"
+# CMD ["nginx", "-g", "daemon off"]
 # CMD ["docker-php-entrypoint", "php-fpm", "-D"]
-# CMD ["nginx", "-g", "daemon off;"]
-CMD ["/usr/local/bin/entrypoint.sh"]
+CMD start-php-fpm-nginx
