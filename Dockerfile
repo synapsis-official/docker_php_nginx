@@ -23,6 +23,4 @@ EXPOSE 80 443
 
 STOPSIGNAL SIGQUIT
 
-# CMD ["nginx", "-g", "daemon off"]
-# CMD ["docker-php-entrypoint", "php-fpm", "-D"]
 CMD start-php-fpm-nginx
