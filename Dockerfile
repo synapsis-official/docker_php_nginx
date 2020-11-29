@@ -8,10 +8,7 @@ MAINTAINER fabrizio@fubelli.org
 RUN apk --update add bash \
     curl \
     nginx \
-    openssl \
-    libzip-dev \
-    && docker-php-ext-configure zip \
-    && docker-php-ext-install zip
+    openssl
 
 ARG composer_hash='756890a4488ce9024fc62c56153228907f1545c228516cbf63f885e036d37e9a59d27d63f46af1d4d07ee0f76181c7d3'
 
