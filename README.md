@@ -36,6 +36,7 @@ WORKDIR /var/www/app
 # Install composer packages
 COPY composer.json ./
 COPY composer.lock ./
+# Install npm packages
 COPY package.json ./
 COPY package-lock.json ./
 
