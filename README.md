@@ -12,7 +12,7 @@ Official Docker Image of [Synaps.is](https://synaps.is)
 ## Dockerfile Example
 
 ```dockerfile
-FROM syis/php-nginx:alpine-7.4
+FROM syis/php-nginx:7.4-alpine
 
 RUN mkdir -p /var/www/app
 WORKDIR /var/www/app
