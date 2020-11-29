@@ -15,19 +15,20 @@ Official Docker Image of [Synaps.is](https://synaps.is)
 FROM syis/php-nginx:7.4-alpine
 
 # Install necessary packages
-RUN apk --update add libzip-dev gmp-dev libsodium-dev \
+RUN apk --update add \
+    libzip-dev gmp-dev libsodium-dev openssl-dev \
     npm mongo-c-driver
 
 # Install the required PHP extensions
 RUN docker-php-ext-configure zip \
     && docker-php-ext-install -j$(grep -c ^processor /proc/cpuinfo 2> /dev/null || 1) \
-    zip gmp \
+        zip gmp \
     && docker-php-ext-install sodium \
     && pecl install mongodb \
     && docker-php-ext-enable mongodb \
-    && apk del .build-deps \
     && docker-php-source delete \
-    && rm -rf /tmp/* /var/cache/apk/*
+    && rm -rf /tmp/* /var/cache/apk/* \
+    && pecl config-set php_ini /etc/php.ini
 
 RUN mkdir -p /var/www/app
 WORKDIR /var/www/app
