@@ -16,7 +16,7 @@ FROM syis/php-nginx:7.4-alpine
 
 # Install necessary packages
 RUN apk --update add libzip-dev gmp-dev libsodium-dev \
-    autoconf dpkg-dev dpkg file g++ gcc libc-dev make re2c
+    npm mongo-c-driver
 
 # Install the required PHP extensions
 RUN docker-php-ext-configure zip \
@@ -35,12 +35,17 @@ WORKDIR /var/www/app
 # Install composer packages
 COPY composer.json ./
 COPY composer.lock ./
+COPY package.json ./
+COPY package-lock.json ./
+
 RUN composer install --no-scripts --no-autoloader --no-interaction --no-progress
+RUN npm install
 
 # Copy application files
 COPY . ./
 
 RUN composer dump-autoload --optimize
+RUN npm run prod
 
 # Copy nginx default virtual host
 COPY docker/nginx/default.conf /etc/nginx/conf.d/

@@ -5,10 +5,8 @@ FROM php:7.4-fpm-alpine3.12
 MAINTAINER fabrizio@fubelli.org
 
 # Nginx stable: https://github.com/nginxinc/docker-nginx/blob/master/stable/alpine/Dockerfile
-RUN apk --update add bash \
-    curl \
-    nginx \
-    openssl
+RUN apk --update add bash curl nginx openssl autoconf \
+    dpkg-dev dpkg file g++ gcc libc-dev make re2c
 
 ARG composer_hash='756890a4488ce9024fc62c56153228907f1545c228516cbf63f885e036d37e9a59d27d63f46af1d4d07ee0f76181c7d3'
 
