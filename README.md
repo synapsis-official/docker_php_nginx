@@ -1,11 +1,12 @@
 # Nginx with PHP-FPM and Composer
 
-Official Docker Image of [Synaps.is](https://synaps.is)
+**Development** version of official Docker Image of [Synaps.is](https://synaps.is)
 
 ## Docker Image content
 
 - [Alpine Linux](https://alpinelinux.org)
 - [PHP 7.4 FPM](https://www.php.net/)
+- [Xdebug](https://xdebug.org/)
 - [Nginx](https://www.nginx.com/)
 - [Composer](https://getcomposer.org/)
 
