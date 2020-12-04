@@ -26,7 +26,7 @@ COPY php-fpm/ /usr/local/etc/php-fpm.d/
 COPY php/conf.d/ /usr/local/etc/php/conf.d/
 COPY start-php-fpm-nginx.sh /usr/local/bin/start-php-fpm-nginx
 
-EXPOSE 80 443 9001
+EXPOSE 80 443
 
 STOPSIGNAL SIGQUIT
 
