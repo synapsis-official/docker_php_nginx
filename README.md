@@ -13,7 +13,7 @@
 ## Dockerfile Example
 
 ```dockerfile
-FROM syis/php-nginx:7.4-alpine
+FROM syis/php-nginx:7.4-alpine-dev
 
 # Install necessary packages
 RUN apk --update add \
