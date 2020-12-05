@@ -10,6 +10,14 @@
 - [Nginx](https://www.nginx.com/)
 - [Composer](https://getcomposer.org/)
 
+## Xdebug Settings
+
+Set the following debug settings in your IDE:
+
+- **Xdebug remote port:** `9003`
+- **Xdebug IDE Key:** `PHPSTORM`
+- **Xdebug Server Name:** `Docker`
+
 ## Dockerfile Example
 
 ```dockerfile
