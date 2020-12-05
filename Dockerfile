@@ -21,6 +21,14 @@ RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
 
 RUN mkdir -p /run/nginx
 
+# Set application name
+ENV HOST_NAME=localhost
+
+# Set xdebug params
+ENV XDEBUG_ENABLED=true
+ENV XDEBUG_REMOTE_HOST=host.docker.internal
+ENV PHP_IDE_CONFIG="serverName=Docker"
+
 COPY nginx/default.conf /etc/nginx/conf.d/
 COPY php-fpm/ /usr/local/etc/php-fpm.d/
 COPY php/conf.d/ /usr/local/etc/php/conf.d/
