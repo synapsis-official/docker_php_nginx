@@ -62,5 +62,5 @@ EXPOSE 80
 
 ## Tags
 
-- [alpine-7.4](https://github.com/synapsis-official/docker_php_nginx/tree/alpine-7.4)
-- [alpine-7.4-dev](https://github.com/synapsis-official/docker_php_nginx/tree/alpine-7.4-dev)
+- [7.4-alpine](https://github.com/synapsis-official/docker_php_nginx/tree/alpine-7.4)
+- [7.4-alpine-dev](https://github.com/synapsis-official/docker_php_nginx/tree/alpine-7.4-dev)
