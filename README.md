@@ -56,6 +56,13 @@ COPY docker/nginx/default.conf /etc/nginx/conf.d/
 EXPOSE 80
 ```
 
+## Build
+
+```shell
+docker build . -t syis/php-nginx:8.1-alpine
+docker push syis/php-nginx:8.1-alpine
+```
+
 ## Links
 
 - [Docker Hub](https://hub.docker.com/r/syis/php-nginx)
