@@ -5,7 +5,7 @@
 ## Docker Image content
 
 - [Alpine Linux](https://alpinelinux.org)
-- [PHP 7.4 FPM](https://www.php.net/)
+- [PHP 8.1 FPM](https://www.php.net/)
 - [Xdebug](https://xdebug.org/)
 - [Nginx](https://www.nginx.com/)
 - [Composer](https://getcomposer.org/)
@@ -21,7 +21,7 @@ Set the following debug settings in your IDE:
 ## Dockerfile Example
 
 ```dockerfile
-FROM syis/php-nginx:7.4-alpine-dev
+FROM syis/php-nginx:8.1-alpine-dev
 
 # Install necessary packages
 RUN apk --update add \
@@ -65,11 +65,20 @@ COPY docker/nginx/default.conf /etc/nginx/conf.d/
 EXPOSE 80
 ```
 
+## Build
+
+```shell
+# Development
+docker build . -t syis/php-nginx:8.1-alpine-dev
+# Production
+docker build . -t syis/php-nginx:8.1-alpine
+```
+
 ## Links
 
 - [Docker Hub](https://hub.docker.com/r/syis/php-nginx)
 
 ## Tags
 
-- [7.4-alpine](https://github.com/synapsis-official/docker_php_nginx/tree/alpine-7.4)
-- [7.4-alpine-dev](https://github.com/synapsis-official/docker_php_nginx/tree/alpine-7.4-dev)
+- [8.1-alpine](https://github.com/synapsis-official/docker_php_nginx/tree/alpine-8.1)
+- [8.1-alpine-dev](https://github.com/synapsis-official/docker_php_nginx/tree/alpine-8.1-dev)

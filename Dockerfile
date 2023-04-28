@@ -1,18 +1,18 @@
 # syis/php-nginx:tagname
 
-FROM php:7.4-fpm-alpine3.12
+FROM php:8.1-fpm-alpine3.17
 
 MAINTAINER fabrizio@fubelli.org
 
 # Nginx stable: https://github.com/nginxinc/docker-nginx/blob/master/stable/alpine/Dockerfile
-RUN apk --update add bash curl nginx openssl autoconf \
+RUN apk --update add linux-headers bash curl nginx openssl autoconf \
     dpkg-dev dpkg file g++ gcc libc-dev make re2c
 
 # Install the required PHP extensions
 RUN pecl install xdebug \
     && docker-php-ext-enable xdebug
 
-ARG composer_hash='756890a4488ce9024fc62c56153228907f1545c228516cbf63f885e036d37e9a59d27d63f46af1d4d07ee0f76181c7d3'
+ARG composer_hash='55ce33d7678c5a611085589f1f3ddf8b3c52d662cd01d4ba75c0ee0459970c2200a51f492d557530c71c15d8dba01eae'
 
 RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
     && php -r "if (hash_file('sha384', 'composer-setup.php') === '${composer_hash}') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;" \
