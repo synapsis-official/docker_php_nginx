@@ -68,10 +68,8 @@ EXPOSE 80
 ## Build
 
 ```shell
-# Development
 docker build . -t syis/php-nginx:8.1-alpine-dev
-# Production
-docker build . -t syis/php-nginx:8.1-alpine
+docker push syis/php-nginx:8.1-alpine-dev
 ```
 
 ## Links
