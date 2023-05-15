@@ -71,5 +71,5 @@ docker push syis/php-nginx:8.1-alpine
 
 - [7.4-alpine](https://github.com/synapsis-official/docker_php_nginx/tree/alpine-7.4)
 - [7.4-alpine-dev](https://github.com/synapsis-official/docker_php_nginx/tree/alpine-7.4-dev)
-- [8.1-alpine](https://github.com/synapsis-official/docker_php_nginx/tree/alpine-8.1)
+- [8.1-alpine](https://github.com/synapsis-official/docker_php_nginx/tree/8.1-alpine)
 - [8.1-alpine-dev](https://github.com/synapsis-official/docker_php_nginx/tree/8.1-alpine-dev)
